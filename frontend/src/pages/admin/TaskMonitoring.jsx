@@ -52,52 +52,54 @@ function TaskMonitoring() {
                     <p>No tasks in the system yet.</p>
                 </div>
             ) : (
-                <table className="data-table">
-                    <thead>
-                        <tr>
-                            <th>Title</th>
-                            <th>Created By</th>
-                            <th>Status</th>
-                            <th>Priority</th>
-                            <th>Created</th>
-                            <th>Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {tasks.map((task) => (
-                            <tr key={task._id}>
-                                <td>
-                                    <span className="task-title">{task.title}</span>
-                                    {task.description && (
-                                        <span className="task-desc">{task.description}</span>
-                                    )}
-                                </td>
-                                <td className="td-creator">
-                                    {task.createdBy?.username || "Unknown"}
-                                    <span className="td-email">{task.createdBy?.email}</span>
-                                </td>
-                                <td>
-                                    <span className={`badge ${getStatusClass(task.status)}`}>
-                                        {task.status}
-                                    </span>
-                                </td>
-                                <td>
-                                    <span className={`badge ${task.priority === "high" ? "badge-red" : task.priority === "medium" ? "badge-yellow" : "badge-gray"}`}>
-                                        {task.priority}
-                                    </span>
-                                </td>
-                                <td className="td-date">
-                                    {new Date(task.createdAt).toLocaleDateString()}
-                                </td>
-                                <td>
-                                    <button className="btn-sm btn-delete" onClick={() => handleDelete(task._id)}>
-                                        Delete
-                                    </button>
-                                </td>
+                <div className="table-responsive">
+                    <table className="data-table">
+                        <thead>
+                            <tr>
+                                <th>Title</th>
+                                <th>Created By</th>
+                                <th>Status</th>
+                                <th>Priority</th>
+                                <th>Created</th>
+                                <th>Actions</th>
                             </tr>
-                        ))}
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>
+                            {tasks.map((task) => (
+                                <tr key={task._id}>
+                                    <td>
+                                        <span className="task-title">{task.title}</span>
+                                        {task.description && (
+                                            <span className="task-desc">{task.description}</span>
+                                        )}
+                                    </td>
+                                    <td className="td-creator">
+                                        {task.createdBy?.username || "Unknown"}
+                                        <span className="td-email">{task.createdBy?.email}</span>
+                                    </td>
+                                    <td>
+                                        <span className={`badge ${getStatusClass(task.status)}`}>
+                                            {task.status}
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <span className={`badge ${task.priority === "high" ? "badge-red" : task.priority === "medium" ? "badge-yellow" : "badge-gray"}`}>
+                                            {task.priority}
+                                        </span>
+                                    </td>
+                                    <td className="td-date">
+                                        {new Date(task.createdAt).toLocaleDateString()}
+                                    </td>
+                                    <td>
+                                        <button className="btn-sm btn-delete" onClick={() => handleDelete(task._id)}>
+                                            Delete
+                                        </button>
+                                    </td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
             )}
         </div>
     );

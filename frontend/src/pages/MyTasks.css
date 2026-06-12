@@ -207,3 +207,10 @@
     color: #9ca3af;
     font-size: 14px;
 }
+
+@media (max-width: 600px) {
+    .form-row {
+        flex-direction: column;
+        gap: 0;
+    }
+}

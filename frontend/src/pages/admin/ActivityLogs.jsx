@@ -43,37 +43,39 @@ function ActivityLogs() {
                     <p>No activity recorded yet.</p>
                 </div>
             ) : (
-                <table className="data-table">
-                    <thead>
-                        <tr>
-                            <th>Action</th>
-                            <th>User</th>
-                            <th>Details</th>
-                            <th>IP Address</th>
-                            <th>Time</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {logs.map((log) => (
-                            <tr key={log._id}>
-                                <td>
-                                    <span className={`badge ${getActionBadge(log.action)}`}>
-                                        {log.action}
-                                    </span>
-                                </td>
-                                <td>
-                                    <span className="log-user">{log.user?.username || "Unknown"}</span>
-                                    <span className="log-email">{log.user?.email}</span>
-                                </td>
-                                <td className="log-details">{log.details}</td>
-                                <td className="log-ip">{log.ipAddress || "N/A"}</td>
-                                <td className="td-date">
-                                    {new Date(log.createdAt).toLocaleString()}
-                                </td>
+                <div className="table-responsive">
+                    <table className="data-table">
+                        <thead>
+                            <tr>
+                                <th>Action</th>
+                                <th>User</th>
+                                <th>Details</th>
+                                <th>IP Address</th>
+                                <th>Time</th>
                             </tr>
-                        ))}
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>
+                            {logs.map((log) => (
+                                <tr key={log._id}>
+                                    <td>
+                                        <span className={`badge ${getActionBadge(log.action)}`}>
+                                            {log.action}
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <span className="log-user">{log.user?.username || "Unknown"}</span>
+                                        <span className="log-email">{log.user?.email}</span>
+                                    </td>
+                                    <td className="log-details">{log.details}</td>
+                                    <td className="log-ip">{log.ipAddress || "N/A"}</td>
+                                    <td className="td-date">
+                                        {new Date(log.createdAt).toLocaleString()}
+                                    </td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
             )}
         </div>
     );

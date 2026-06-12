@@ -162,52 +162,54 @@ function MyTasks() {
                     <p>No tasks yet. Create your first task!</p>
                 </div>
             ) : (
-                <table className="data-table">
-                    <thead>
-                        <tr>
-                            <th>Title</th>
-                            <th>Status</th>
-                            <th>Priority</th>
-                            <th>Created</th>
-                            <th>Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {tasks.map((task) => (
-                            <tr key={task._id}>
-                                <td>
-                                    <span className="task-title">{task.title}</span>
-                                    {task.description && (
-                                        <span className="task-desc">{task.description}</span>
-                                    )}
-                                </td>
-                                <td>
-                                    <span className={`badge ${getStatusClass(task.status)}`}>
-                                        {task.status}
-                                    </span>
-                                </td>
-                                <td>
-                                    <span className={`badge ${getPriorityClass(task.priority)}`}>
-                                        {task.priority}
-                                    </span>
-                                </td>
-                                <td className="td-date">
-                                    {new Date(task.createdAt).toLocaleDateString()}
-                                </td>
-                                <td>
-                                    <div className="action-btns">
-                                        <button className="btn-sm btn-edit" onClick={() => handleEdit(task)}>
-                                            Edit
-                                        </button>
-                                        <button className="btn-sm btn-delete" onClick={() => handleDelete(task._id)}>
-                                            Delete
-                                        </button>
-                                    </div>
-                                </td>
+                <div className="table-responsive">
+                    <table className="data-table">
+                        <thead>
+                            <tr>
+                                <th>Title</th>
+                                <th>Status</th>
+                                <th>Priority</th>
+                                <th>Created</th>
+                                <th>Actions</th>
                             </tr>
-                        ))}
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>
+                            {tasks.map((task) => (
+                                <tr key={task._id}>
+                                    <td>
+                                        <span className="task-title">{task.title}</span>
+                                        {task.description && (
+                                            <span className="task-desc">{task.description}</span>
+                                        )}
+                                    </td>
+                                    <td>
+                                        <span className={`badge ${getStatusClass(task.status)}`}>
+                                            {task.status}
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <span className={`badge ${getPriorityClass(task.priority)}`}>
+                                            {task.priority}
+                                        </span>
+                                    </td>
+                                    <td className="td-date">
+                                        {new Date(task.createdAt).toLocaleDateString()}
+                                    </td>
+                                    <td>
+                                        <div className="action-btns">
+                                            <button className="btn-sm btn-edit" onClick={() => handleEdit(task)}>
+                                                Edit
+                                            </button>
+                                            <button className="btn-sm btn-delete" onClick={() => handleDelete(task._id)}>
+                                                Delete
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
             )}
         </div>
     );

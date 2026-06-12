@@ -52,55 +52,57 @@ function UserManagement() {
                 <p>{users.length} registered users</p>
             </div>
 
-            <table className="data-table">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Role</th>
-                        <th>Status</th>
-                        <th>Joined</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {users.map((u) => (
-                        <tr key={u._id}>
-                            <td className="td-name">{u.username}</td>
-                            <td>{u.email}</td>
-                            <td>
-                                <span className={`badge ${u.role === "admin" ? "badge-blue" : "badge-gray"}`}>
-                                    {u.role}
-                                </span>
-                            </td>
-                            <td>
-                                <span className={`badge ${u.status === "active" ? "badge-green" : "badge-red"}`}>
-                                    {u.status}
-                                </span>
-                            </td>
-                            <td className="td-date">
-                                {new Date(u.createdAt).toLocaleDateString()}
-                            </td>
-                            <td>
-                                <div className="action-btns">
-                                    <button
-                                        className="btn-sm btn-edit"
-                                        onClick={() => handleStatusToggle(u._id, u.status)}
-                                    >
-                                        {u.status === "active" ? "Deactivate" : "Activate"}
-                                    </button>
-                                    <button
-                                        className="btn-sm btn-delete"
-                                        onClick={() => handleDelete(u._id)}
-                                    >
-                                        Delete
-                                    </button>
-                                </div>
-                            </td>
+            <div className="table-responsive">
+                <table className="data-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Role</th>
+                            <th>Status</th>
+                            <th>Joined</th>
+                            <th>Actions</th>
                         </tr>
-                    ))}
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        {users.map((u) => (
+                            <tr key={u._id}>
+                                <td className="td-name">{u.username}</td>
+                                <td>{u.email}</td>
+                                <td>
+                                    <span className={`badge ${u.role === "admin" ? "badge-blue" : "badge-gray"}`}>
+                                        {u.role}
+                                    </span>
+                                </td>
+                                <td>
+                                    <span className={`badge ${u.status === "active" ? "badge-green" : "badge-red"}`}>
+                                        {u.status}
+                                    </span>
+                                </td>
+                                <td className="td-date">
+                                    {new Date(u.createdAt).toLocaleDateString()}
+                                </td>
+                                <td>
+                                    <div className="action-btns">
+                                        <button
+                                            className="btn-sm btn-edit"
+                                            onClick={() => handleStatusToggle(u._id, u.status)}
+                                        >
+                                            {u.status === "active" ? "Deactivate" : "Activate"}
+                                        </button>
+                                        <button
+                                            className="btn-sm btn-delete"
+                                            onClick={() => handleDelete(u._id)}
+                                        >
+                                            Delete
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            </div>
         </div>
     );
 }

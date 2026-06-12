@@ -109,3 +109,13 @@
     border-color: #fecaca;
     color: #b91c1c;
 }
+
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100%;
+        min-height: auto;
+        position: relative;
+        border-right: none;
+        border-bottom: 1px solid #e5e7eb;
+    }
+}
