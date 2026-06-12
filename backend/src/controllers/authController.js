@@ -49,13 +49,18 @@ const login = async (req, res) => {
             return res.status(400).json({ msg: "User does not exist, please sign up" });
         }
 
+        // don't let inactive users log in
+        if (user.status === "inactive") {
+            return res.status(403).json({ msg: "Your account has been deactivated. Contact admin." });
+        }
+
         const isMatch = await bcrypt.compare(password, user.password);
         if (!isMatch) {
             return res.status(400).json({ msg: "Invalid password credentials" });
         }
 
         const authToken = jwt.sign(
-            { id: user._id },
+            { id: user._id, role: user.role },
             JWT_SECRET,
             { expiresIn: "1d" }
         );
