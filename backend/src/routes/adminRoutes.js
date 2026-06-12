@@ -6,7 +6,8 @@ const {
     deleteUser,
     updateUserStatus,
     getAllTasks,
-    deleteAnyTask
+    deleteAnyTask,
+    getActivityLogs
 } = require("../controllers/adminController");
 
 const adminRouter = express.Router();
@@ -22,5 +23,8 @@ adminRouter.patch("/users/:id/status", updateUserStatus);
 // task management
 adminRouter.get("/tasks", getAllTasks);
 adminRouter.delete("/tasks/:id", deleteAnyTask);
+
+// activity logs
+adminRouter.get("/logs", getActivityLogs);
 
 module.exports = adminRouter;

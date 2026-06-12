@@ -1,6 +1,7 @@
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const User = require("../models/User");
+const logActivity = require("../utils/logActivity");
 
 const JWT_SECRET = process.env.JWT_SECRET;
 
@@ -64,6 +65,9 @@ const login = async (req, res) => {
             JWT_SECRET,
             { expiresIn: "1d" }
         );
+
+        // log the login
+        await logActivity(user._id, "LOGIN", "User logged in", req.ip);
 
         return res.status(200).json({
             msg: "Login successful",

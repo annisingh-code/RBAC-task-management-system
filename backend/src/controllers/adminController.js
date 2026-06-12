@@ -1,5 +1,6 @@
 const User = require("../models/User");
 const Task = require("../models/Task");
+const ActivityLog = require("../models/ActivityLog");
 
 // get all users (admin only)
 const getAllUsers = async (req, res) => {
@@ -92,4 +93,19 @@ const deleteAnyTask = async (req, res) => {
     }
 };
 
-module.exports = { getAllUsers, deleteUser, updateUserStatus, getAllTasks, deleteAnyTask };
+// get activity logs
+const getActivityLogs = async (req, res) => {
+    try {
+        const logs = await ActivityLog.find()
+            .populate("user", "username email")
+            .sort({ createdAt: -1 })
+            .limit(100);
+
+        return res.status(200).json({ logs });
+
+    } catch (error) {
+        return res.status(500).json({ error: error.message });
+    }
+};
+
+module.exports = { getAllUsers, deleteUser, updateUserStatus, getAllTasks, deleteAnyTask, getActivityLogs };
