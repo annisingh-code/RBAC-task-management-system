@@ -4,6 +4,7 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import DashboardLayout from "./components/DashboardLayout";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
+import MyTasks from "./pages/MyTasks";
 
 function PlaceholderPage({ title }) {
     return (
@@ -32,7 +33,7 @@ function App() {
                 }
             >
                 <Route path="/" element={<PlaceholderPage title="Dashboard" />} />
-                <Route path="/tasks" element={<PlaceholderPage title="My Tasks" />} />
+                <Route path="/tasks" element={<MyTasks />} />
             </Route>
 
             {/* catch all */}
