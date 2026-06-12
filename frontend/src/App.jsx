@@ -1,8 +1,18 @@
 import { Routes, Route, Navigate } from "react-router-dom";
 import { useAuth } from "./context/AuthContext";
 import ProtectedRoute from "./components/ProtectedRoute";
+import DashboardLayout from "./components/DashboardLayout";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
+
+function PlaceholderPage({ title }) {
+    return (
+        <div className="page-header">
+            <h1>{title}</h1>
+            <p>Coming soon...</p>
+        </div>
+    );
+}
 
 function App() {
     const { user } = useAuth();
@@ -13,18 +23,17 @@ function App() {
             <Route path="/login" element={user ? <Navigate to="/" /> : <Login />} />
             <Route path="/signup" element={user ? <Navigate to="/" /> : <Signup />} />
 
-            {/* protected routes - placeholder for now */}
+            {/* protected routes with dashboard layout */}
             <Route
-                path="/"
                 element={
                     <ProtectedRoute>
-                        <div style={{ padding: 40 }}>
-                            <h2>Dashboard coming soon...</h2>
-                            <p>Logged in as {user?.name}</p>
-                        </div>
+                        <DashboardLayout />
                     </ProtectedRoute>
                 }
-            />
+            >
+                <Route path="/" element={<PlaceholderPage title="Dashboard" />} />
+                <Route path="/tasks" element={<PlaceholderPage title="My Tasks" />} />
+            </Route>
 
             {/* catch all */}
             <Route path="*" element={<Navigate to="/" />} />
