@@ -9,14 +9,8 @@ import MyTasks from "./pages/MyTasks";
 import UserManagement from "./pages/admin/UserManagement";
 import TaskMonitoring from "./pages/admin/TaskMonitoring";
 
-function PlaceholderPage({ title }) {
-    return (
-        <div className="page-header">
-            <h1>{title}</h1>
-            <p>Coming soon...</p>
-        </div>
-    );
-}
+import Dashboard from "./pages/Dashboard";
+import ActivityLogs from "./pages/admin/ActivityLogs";
 
 function App() {
     const { user } = useAuth();
@@ -35,12 +29,13 @@ function App() {
                     </ProtectedRoute>
                 }
             >
-                <Route path="/" element={<PlaceholderPage title="Dashboard" />} />
+                <Route path="/" element={<Dashboard />} />
                 <Route path="/tasks" element={<MyTasks />} />
 
                 {/* admin only routes */}
                 <Route path="/admin/users" element={<AdminRoute><UserManagement /></AdminRoute>} />
                 <Route path="/admin/tasks" element={<AdminRoute><TaskMonitoring /></AdminRoute>} />
+                <Route path="/admin/logs" element={<AdminRoute><ActivityLogs /></AdminRoute>} />
             </Route>
 
             {/* catch all */}

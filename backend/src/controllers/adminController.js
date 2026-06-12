@@ -108,4 +108,25 @@ const getActivityLogs = async (req, res) => {
     }
 };
 
-module.exports = { getAllUsers, deleteUser, updateUserStatus, getAllTasks, deleteAnyTask, getActivityLogs };
+// get dashboard stats
+const getDashboardStats = async (req, res) => {
+    try {
+        const totalUsers = await User.countDocuments();
+        const totalTasks = await Task.countDocuments();
+        const completedTasks = await Task.countDocuments({ status: "completed" });
+        const pendingTasks = await Task.countDocuments({ status: "pending" });
+
+        return res.status(200).json({
+            stats: {
+                totalUsers,
+                totalTasks,
+                completedTasks,
+                pendingTasks
+            }
+        });
+    } catch (error) {
+        return res.status(500).json({ error: error.message });
+    }
+};
+
+module.exports = { getAllUsers, deleteUser, updateUserStatus, getAllTasks, deleteAnyTask, getActivityLogs, getDashboardStats };
