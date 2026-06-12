@@ -1,8 +1,8 @@
 /* reuse shared table styles from MyTasks.css, add admin-specific ones here */
 
 .badge-blue {
-    background: #eff6ff;
-    color: #2563eb;
+    background: #e0f7fa;
+    color: blue;
 }
 
 .td-name {

@@ -72,8 +72,7 @@
 .form-group input:focus,
 .form-group select:focus,
 .form-group textarea:focus {
-    border-color: #3b82f6;
-    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.1);
+    border-color: #007bff;
 }
 
 .form-error {
@@ -141,31 +140,31 @@
 /* badges */
 .badge {
     display: inline-block;
-    padding: 3px 10px;
-    border-radius: 12px;
-    font-size: 11px;
-    font-weight: 500;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    border: 1px solid #ccc;
     text-transform: capitalize;
 }
 
 .badge-green {
-    background: #ecfdf5;
-    color: #059669;
+    background: #e6ffed;
+    color: green;
 }
 
 .badge-yellow {
-    background: #fffbeb;
-    color: #d97706;
+    background: #fff8c5;
+    color: #b08800;
 }
 
 .badge-red {
-    background: #fef2f2;
-    color: #dc2626;
+    background: #ffebe9;
+    color: red;
 }
 
 .badge-gray {
-    background: #f3f4f6;
-    color: #6b7280;
+    background: #f6f8fa;
+    color: #57606a;
 }
 
 /* action buttons */

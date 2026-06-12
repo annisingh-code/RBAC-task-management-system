@@ -5,26 +5,22 @@
 }
 
 body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-family: Arial, sans-serif;
   font-size: 14px;
-  color: #1a1a2e;
-  background: #f5f6fa;
+  color: #333;
+  background: #f4f4f4;
   line-height: 1.5;
-  -webkit-font-smoothing: antialiased;
 }
 
 a {
-  color: inherit;
+  color: #007bff;
   text-decoration: none;
 }
 
 button {
   cursor: pointer;
-  font-family: inherit;
-  font-size: inherit;
 }
 
 input, select, textarea {
-  font-family: inherit;
-  font-size: inherit;
+  font-family: Arial, sans-serif;
 }

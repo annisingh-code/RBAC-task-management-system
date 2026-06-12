@@ -52,8 +52,7 @@ function TaskMonitoring() {
                     <p>No tasks in the system yet.</p>
                 </div>
             ) : (
-                <div className="table-responsive">
-                    <table className="data-table">
+                <table className="data-table">
                         <thead>
                             <tr>
                                 <th>Title</th>
@@ -99,7 +98,6 @@ function TaskMonitoring() {
                             ))}
                         </tbody>
                     </table>
-                </div>
             )}
         </div>
     );

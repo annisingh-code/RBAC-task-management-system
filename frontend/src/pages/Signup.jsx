@@ -22,8 +22,7 @@ function Signup() {
             await signup(username, email, password);
             navigate("/login");
         } catch (err) {
-            const msg = err.response?.data?.msg || "Something went wrong";
-            setError(msg);
+            setError(err.message || "Signup failed");
         } finally {
             setSubmitting(false);
         }

@@ -45,8 +45,4 @@
         padding: 20px;
     }
 }
-/* wrap tables for horizontal scroll */
-.table-responsive {
-    overflow-x: auto;
-    width: 100%;
-}
+

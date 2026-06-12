@@ -21,8 +21,7 @@ function Login() {
             await login(email, password);
             navigate("/");
         } catch (err) {
-            const msg = err.response?.data?.msg || "Something went wrong";
-            setError(msg);
+            setError(err.message || "Login failed");
         } finally {
             setSubmitting(false);
         }

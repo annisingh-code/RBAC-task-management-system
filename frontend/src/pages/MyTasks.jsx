@@ -53,7 +53,7 @@ function MyTasks() {
             resetForm();
             fetchTasks();
         } catch (err) {
-            setError(err.response?.data?.msg || "Something went wrong");
+            setError("Failed to save task");
         }
     };
 
@@ -162,8 +162,7 @@ function MyTasks() {
                     <p>No tasks yet. Create your first task!</p>
                 </div>
             ) : (
-                <div className="table-responsive">
-                    <table className="data-table">
+                <table className="data-table">
                         <thead>
                             <tr>
                                 <th>Title</th>
@@ -209,7 +208,6 @@ function MyTasks() {
                             ))}
                         </tbody>
                     </table>
-                </div>
             )}
         </div>
     );

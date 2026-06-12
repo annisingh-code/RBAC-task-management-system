@@ -43,8 +43,7 @@ function ActivityLogs() {
                     <p>No activity recorded yet.</p>
                 </div>
             ) : (
-                <div className="table-responsive">
-                    <table className="data-table">
+                <table className="data-table">
                         <thead>
                             <tr>
                                 <th>Action</th>
@@ -75,7 +74,6 @@ function ActivityLogs() {
                             ))}
                         </tbody>
                     </table>
-                </div>
             )}
         </div>
     );

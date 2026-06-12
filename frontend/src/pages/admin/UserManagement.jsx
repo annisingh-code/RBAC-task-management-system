@@ -52,8 +52,7 @@ function UserManagement() {
                 <p>{users.length} registered users</p>
             </div>
 
-            <div className="table-responsive">
-                <table className="data-table">
+            <table className="data-table">
                     <thead>
                         <tr>
                             <th>Name</th>
@@ -102,7 +101,6 @@ function UserManagement() {
                         ))}
                     </tbody>
                 </table>
-            </div>
         </div>
     );
 }
